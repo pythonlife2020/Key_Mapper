@@ -62,7 +62,7 @@ def onKeyboardEvent(event):
     if str(event.Key) == 'Oem_5':
         switchFlag()
 
-    #如果程序开启，如果检测到按键为快捷键，则将该快捷键映射的值送给系统
+    #如果程序开启，如果检测到按键为预设快捷键，则将该快捷键映射的值送给操作系统处理
     if checkFlag():
         if str(event.Key).lower() == keyMap['装备栏1'].lower():
             win32api.keybd_event(103, 0, 0, 0)      #对应小键盘7
@@ -87,8 +87,7 @@ def onKeyboardEvent(event):
 
 
     # 返回 True 以便将事件传给其它处理程序
-    # 注意，这儿如果返回 False ，则鼠标事件将被全部拦截
-    # 也就是说你的输入失效，似乎失去响应了
+    # 注意，如果返回 False ，则鼠标事件将被全部拦截
     return True
 
 
